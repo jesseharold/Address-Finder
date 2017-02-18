@@ -45,7 +45,10 @@ app.get("/", function(req, res) {
 // We will call this route the moment our page gets rendered
 app.get("/api", function(req, res) {
   // This GET request will retrieve the search history from mongo
-  Location.find({}).exec(function(err, searches) {
+  Location.find({})
+  .sort({createdAt: -1})
+  .limit(5)
+  .exec(function(err, searches) {
     if (err) {
       console.log(err);
       res.send("There was an error retrieving search history: ", err);
