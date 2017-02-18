@@ -13,7 +13,7 @@ var LocationSchema = new Schema({
 });
 
 // Create the Model
-var Location = mongoose.model("Location", ClickSchema);
+var Location = mongoose.model("Location", LocationSchema);
 
 // Export it for use elsewhere
 module.exports = Location;
